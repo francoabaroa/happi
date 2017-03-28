@@ -46,7 +46,7 @@ export default props => {
 
                    <Container fluid={true} className='centered'>
                      <span>
-                       <img className='' src={'../img/gabi.jpg'} />
+                       <img className='centered' src={'../img/gabi.jpg'} />
                      </span>
                    </Container>
                    <div className="mui--text-center"><h2>Gabi Jubran</h2><h5 className="black">Founder & CEO</h5></div>
