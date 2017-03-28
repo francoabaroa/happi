@@ -35,7 +35,7 @@ a {
 
 .centered {
   margin: 0 auto !important;
-  max-width: 60%;
+  max-width: 30%;
   height: auto;
   width: auto\9; /* ie8 */
   text-align: center !important;
