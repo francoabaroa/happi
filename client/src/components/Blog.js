@@ -20,6 +20,7 @@ import Drawer from 'material-ui/Drawer';
 import ReactDOM from 'react-dom';
 import Tabs from 'muicss/lib/react/tabs';
 import Tab from 'muicss/lib/react/tab';
+import Container from 'muicss/lib/react/container';
 
 
 export default props => {
@@ -27,17 +28,23 @@ export default props => {
   return (
       <div>
 
-
-
-              <Tabs initialSelectedIndex={2} justified={true}>
-                     <Tab className="mui--text-white" value="pane-1" label="Home" onActive={props.onEmailChange}></Tab>
-                     <Tab className="mui--text-white" value="pane-2" label="Portfolio" onActive={props.onEmailChange}></Tab>
-                     <Tab value="pane-3" label="Skills" onActive={props.onEmailChange}></Tab>
-                     <Tab value="pane-4" label="Contact" onActive={props.onEmailChange}></Tab>
-                   </Tabs>
+      <div className='navBar'>
+      <Tabs defaultSelectedIndex={3} justified={true}>
+             <Tab className="mui--text-white" value="pane-1" label="Home" onActive={props.onEmailChange}></Tab>
+             <Tab className="mui--text-white" value="pane-2" onActive={props.onEmailChange} label="About Us"></Tab>
+             <Tab value="pane-3" label="Our team" onActive={props.onEmailChange}></Tab>
+             <Tab value="pane-4" label="Blog" onActive={props.onEmailChange}></Tab>
+             <Tab value="pane-5" label="Podcast" onActive={props.onEmailChange}></Tab>
+             <Tab value="pane-6" label="Donate" onActive={props.onEmailChange}></Tab>
+             <Tab value="pane-6" label="Contact Us" onActive={props.onEmailChange}></Tab>
+           </Tabs>
+      </div>
 
                    <br/>
-                   <div className="mui--text-display3">Welcome to my skills page!</div>
+                   <br/>
+
+                   <div className="mui--text-center mui--text-display3">Medium Blog coming soon..</div>
+
             </div>
   );
 };

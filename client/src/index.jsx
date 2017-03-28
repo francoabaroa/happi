@@ -1,28 +1,26 @@
-import 'aframe';
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory } from 'react-router';
 
 import App from './components/App.js';
-import Home from './components/Home.js';
-import Main from './components/Main.js';
-import Portfolio from './components/Portfolio.js';
-import Skills from './components/Skills.js';
-import Contact from './components/Contact.js';
-import HackerWords from './components/HackerWords.js';
-import Immerse from './components/Immerse.js';
-import Goolp from './components/Goolp.js';
+
+import AboutUs from './components/AboutUs.js';
+import OurTeam from './components/OurTeam.js';
+import Blog from './components/Blog.js';
+import Podcast from './components/Podcast.js';
+import Donate from './components/Donate.js';
+import ContactUs from './components/ContactUs.js';
 
 ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App} >
-      <Route path="/portfolio" component={Portfolio} />
-      <Route path="/skills" component={Skills} />
-      <Route path="/contact" component={Contact} />
-      <Route path="/hackerwords" component={HackerWords} />
-      <Route path="/immerse" component={Immerse} />
-      <Route path="/goolp" component={Goolp} />
+      <Route path="/aboutus" component={AboutUs} />
+      <Route path="/ourteam" component={OurTeam} />
+      <Route path="/blog" component={Blog} />
+      <Route path="/podcast" component={Podcast} />
+      <Route path="/donate" component={Donate} />
+      <Route path="/contactus" component={ContactUs} />
     </Route>
   </Router>
 ), document.querySelector('.scene-container'));

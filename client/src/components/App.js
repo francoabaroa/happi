@@ -1,8 +1,4 @@
-import AFRAME from 'aframe';
-import 'aframe-animation-component';
-import 'aframe-text-component';
 import 'babel-polyfill';
-import {Entity, Scene} from 'aframe-react';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Link, withRouter } from 'react-router';
@@ -12,14 +8,13 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 
-import Home from './Home.js';
-import Main from './Main.js';
-import Portfolio from './Portfolio.js';
-import Skills from './Skills.js';
-import Contact from './Contact.js';
-import HackerWords from './HackerWords.js';
-import Immerse from './Immerse.js';
-import Goolp from './Goolp.js';
+import Inicio from './Inicio.js';
+import AboutUs from './AboutUs.js';
+import OurTeam from './OurTeam.js';
+import Blog from './Blog.js';
+import Podcast from './Podcast.js';
+import Donate from './Donate.js';
+import ContactUs from './ContactUs.js';
 
 
 
@@ -49,6 +44,16 @@ class App extends React.Component {
   onEmailChange() {
     let route = arguments[0].props.label.toLowerCase();
     console.log(route, 'called');
+
+    if (route.split('').includes(' ')) {
+      route = route
+              .split('')
+              .filter(function(val) {
+                return val !== ' ';
+              })
+              .join('');
+    }
+
     if (route === 'home') {
       this.props.router.replace('/');
     } else {
@@ -69,46 +74,46 @@ class App extends React.Component {
     let self = this;
     let vrView = '';
 
-    if (this.props.router.location.pathname.indexOf('/portfolio') >= 0) {
+    if (this.props.router.location.pathname.indexOf('/aboutus') >= 0) {
       console.log('this is rerendering PORT');
       return (
-              <Portfolio onEmailChange={this.onEmailChange.bind(this)} portfolioChange={this.portfolioChange.bind(this)} router={self.props.router}/>
+              <AboutUs onEmailChange={this.onEmailChange.bind(this)} portfolioChange={this.portfolioChange.bind(this)} router={self.props.router}/>
       );
 
-    } else if (this.props.router.location.pathname.indexOf('/skills') >= 0) {
-      console.log('this is rerendering SKILLS');
+    } else if (this.props.router.location.pathname.indexOf('/ourteam') >= 0) {
+      console.log('this is rerendering OurTeam');
       return (
-              <Skills onEmailChange={this.onEmailChange.bind(this)} router={this.props.router}/>
+              <OurTeam onEmailChange={this.onEmailChange.bind(this)} router={this.props.router}/>
       );
 
-    } else if (this.props.router.location.pathname.indexOf('/contact') >= 0) {
+    } else if (this.props.router.location.pathname.indexOf('/blog') >= 0) {
+      console.log('this is rerendering Blog');
+      return (
+              <Blog onEmailChange={this.onEmailChange.bind(this)} router={this.props.router}/>
+      );
+
+    } else if (this.props.router.location.pathname.indexOf('/podcast') >= 0) {
+      console.log('this is rerendering Podcast');
+      return (
+              <Podcast onEmailChange={this.onEmailChange.bind(this)} router={this.props.router}/>
+      );
+
+    } else if (this.props.router.location.pathname.indexOf('/donate') >= 0) {
+      console.log('this is rerendering Donate');
+      return (
+              <Donate onEmailChange={this.onEmailChange.bind(this)} router={this.props.router}/>
+      );
+
+    } else if (this.props.router.location.pathname.indexOf('/contactus') >= 0) {
       console.log('this is rerendering CONTACT');
       return (
-              <Contact onEmailChange={this.onEmailChange.bind(this)} router={this.props.router}/>
-      );
-
-    } else if (this.props.router.location.pathname.indexOf('/hackerwords') >= 0) {
-      console.log('this is rerendering CONTACT');
-      return (
-              <HackerWords onEmailChange={this.onEmailChange.bind(this)} portfolioChange={this.portfolioChange.bind(this)} router={this.props.router}/>
-      );
-
-    } else if (this.props.router.location.pathname.indexOf('/immerse') >= 0) {
-      console.log('this is rerendering CONTACT');
-      return (
-              <Immerse onEmailChange={this.onEmailChange.bind(this)} portfolioChange={this.portfolioChange.bind(this)} router={this.props.router}/>
-      );
-
-    } else if (this.props.router.location.pathname.indexOf('/goolp') >= 0) {
-      console.log('this is rerendering CONTACT');
-      return (
-              <Goolp onEmailChange={this.onEmailChange.bind(this)} portfolioChange={this.portfolioChange.bind(this)} router={this.props.router}/>
+              <ContactUs onEmailChange={this.onEmailChange.bind(this)} router={this.props.router}/>
       );
 
     } else if (this.props.router.location.pathname.indexOf('/') >= 0) {
-      console.log('this is rerendering home');
+      console.log('this is rerendering Inicio');
       return (
-              <Home onEmailChange={this.onEmailChange.bind(this)} router={this.props.router} />
+              <Inicio onEmailChange={this.onEmailChange.bind(this)} router={this.props.router} />
       );
 
     }

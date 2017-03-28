@@ -5,7 +5,7 @@ const compression = require('compression');
 const express = require('express');
 const path = require('path');
 
-const port = 80;
+const port = process.env.PORT || 7000;
 // const secret = process.env.SESSION_SECRET;
 
 
@@ -15,7 +15,7 @@ const app = express();
 app.use(bodyParser.json({limit: '40mb'}));
 app.use(compression()); // gzip compress all responses
 
-const routes = ['/', '/contact', '/portfolio', '/skills'];
+const routes = ['/', '/aboutus', '/ourteam', '/blog', '/podcast', '/donate', '/contactus'];
 
 for (const route of routes) {
   app.get(route, (req, res) => {
@@ -25,23 +25,36 @@ for (const route of routes) {
 
 app.use(express.static(path.join(__dirname, '../client')));
 
-
-app.get('/contact', function(req, res) {
+app.get('/aboutus', function(req, res) {
   res.sendFile(path.join(__dirname, '/../client/index.html'));
 });
 
-app.get('/portfolio', function(req, res) {
+app.get('/ourteam', function(req, res) {
   res.sendFile(path.join(__dirname, '/../client/index.html'));
 });
 
-app.get('/skills', function(req, res) {
+app.get('/blog', function(req, res) {
   res.sendFile(path.join(__dirname, '/../client/index.html'));
 });
+
+app.get('/podcast', function(req, res) {
+  res.sendFile(path.join(__dirname, '/../client/index.html'));
+});
+
+app.get('/donate', function(req, res) {
+  res.sendFile(path.join(__dirname, '/../client/index.html'));
+});
+
+app.get('/contactus', function(req, res) {
+  res.sendFile(path.join(__dirname, '/../client/index.html'));
+});
+
+
 
 
 // wildcard route
 app.get('*', function(req, res) {
-  res.status(404).send('Not Found');
+  res.status(404).send('Error! Please return to happi.com');
 });
 
 app.listen(port, () => {
