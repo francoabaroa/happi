@@ -67769,7 +67769,7 @@
 	      _react2.default.createElement(
 	        'span',
 	        null,
-	        _react2.default.createElement('img', { className: '', src: '../img/gabi.jpg' })
+	        _react2.default.createElement('img', { className: 'centered', src: '../img/gabi.jpg' })
 	      )
 	    ),
 	    _react2.default.createElement(
