@@ -37,12 +37,12 @@
     "webpack": "^1.13.3"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "node server/server.js",
     "webpack": "webpack -d --progress --colors --watch"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/francoabaroa/leweb.git"
+    "url": "git+https://github.com/francoabaroa/happi.git"
   },
   "devDependencies": {
     "babel": "^6.3.13",
